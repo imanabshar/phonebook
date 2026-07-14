@@ -1,13 +1,20 @@
 const Persons = ({ personsToShow, handleDelete }) => {
+  if (personsToShow.length === 0) {
+    return <p className="empty-state">No contacts found.</p>;
+  }
+
   return (
     <div>
       {personsToShow.map((person) => (
-        <p key={person.id}>
-          {person.name}: {person.number}
+        <div className="person-row" key={person.id}>
+          <div className="person-info">
+            <span className="person-name">{person.name}</span>
+            <span className="person-number">{person.number}</span>
+          </div>
           <button onClick={() => handleDelete(person.id, person.name)}>
-            delete
+            Delete
           </button>
-        </p>
+        </div>
       ))}
     </div>
   );

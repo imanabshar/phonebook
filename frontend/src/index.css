@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --paper: #ffffff;
+    --ink: #2b2528;
+    --muted: #a68b93;
+    --line: #f0dde3;
+    --pink: #e07a9a;
+    --pink-dark: #c85c7e;
+    --blush: #fdf1f4;
+    --danger: #c0564f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+#root {
+    max-width: 440px;
+    margin: 64px auto;
+    padding: 0 20px;
+}
+
+.app-header {
+    margin-bottom: 32px;
+}
+
+.app-header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px 0;
+    color: var(--ink);
+}
+
+.app-header span {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.error-banner {
+    color: var(--danger);
+    font-size: 13.5px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 20px;
+}
+
+.filter-row {
+    margin-bottom: 28px;
+}
+
+.filter-row label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input:not([type]) {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    background: var(--paper);
+    color: var(--ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input::placeholder {
+    color: #d8c3ca;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px var(--blush);
+}
+
+.section-label {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 14px 0;
+}
+
+.person-form {
+    margin-bottom: 32px;
+    padding-bottom: 8px;
+}
+
+.person-form .field {
+    margin-bottom: 14px;
+}
+
+.person-form label {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+button {
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 16px;
+    cursor: pointer;
+    background-color: var(--pink);
+    color: white;
+    transition: background-color 0.15s ease;
+}
+
+button:hover {
+    background-color: var(--pink-dark);
+}
+
+button:disabled {
+    background-color: var(--line);
+    color: var(--muted);
+    cursor: not-allowed;
+}
+
+.person-form button {
+    width: 100%;
+    margin-top: 4px;
+    padding: 10px;
+}
+
+.person-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 2px;
+    border-bottom: 1px solid var(--line);
+}
+
+.person-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.person-name {
+    font-weight: 500;
+    font-size: 14.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.person-number {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.person-row button {
+    background-color: transparent;
+    color: var(--muted);
+    padding: 4px 8px;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-left: 12px;
+}
+
+.person-row button:hover {
+    background-color: var(--blush);
+    color: var(--danger);
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 24px 0;
+}

@@ -89,13 +89,18 @@ const App = () => {
 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <div className="app-header">
+        <h1>Phonebook</h1>
+        <span>{persons.length} contacts</span>
+      </div>
 
-      {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
+      {errorMessage && <div className="error-banner">{errorMessage}</div>}
 
-      <Filter filter={filter} handleFilterChange={handleFilterChange} />
+      <div className="filter-row">
+        <Filter filter={filter} handleFilterChange={handleFilterChange} />
+      </div>
 
-      <h3>Add a new</h3>
+      <p className="section-label">Add a new</p>
 
       <PersonForm
         addPerson={addPerson}
@@ -105,7 +110,7 @@ const App = () => {
         handleNumChange={handleNumChange}
       />
 
-      <h3>Numbers</h3>
+      <p className="section-label">Contacts</p>
 
       <Persons personsToShow={personsToShow} handleDelete={handleDelete} />
     </div>

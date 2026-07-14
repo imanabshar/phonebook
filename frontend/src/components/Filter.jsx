@@ -1,10 +1,14 @@
 const Filter = ({ filter, handleFilterChange }) => {
   return (
     <div>
-      filter shown with: <input value={filter} onChange={handleFilterChange} />
+      <label>Search</label>
+      <input
+        value={filter}
+        onChange={handleFilterChange}
+        placeholder="Find a contact..."
+      />
     </div>
   );
 };
 
 export default Filter;
-
