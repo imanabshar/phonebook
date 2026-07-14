@@ -9,6 +9,7 @@ const App = () => {
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
   const [filter, setFilter] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     personService.getAll().then((initialPersons) => {
@@ -39,6 +40,12 @@ const App = () => {
             );
             setNewName("");
             setNewNumber("");
+          })
+          .catch((error) => {
+            setErrorMessage(error.response.data.error);
+            setTimeout(() => {
+              setErrorMessage(null);
+            }, 5000);
           });
       }
       return;
@@ -49,11 +56,19 @@ const App = () => {
       number: newNumber,
     };
 
-    personService.create(personObject).then((returnedPerson) => {
-      setPersons(persons.concat(returnedPerson));
-      setNewName("");
-      setNewNumber("");
-    });
+    personService
+      .create(personObject)
+      .then((returnedPerson) => {
+        setPersons(persons.concat(returnedPerson));
+        setNewName("");
+        setNewNumber("");
+      })
+      .catch((error) => {
+        setErrorMessage(error.response.data.error);
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 5000);
+      });
   };
 
   const handleDelete = (id, name) => {
@@ -75,6 +90,8 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+
+      {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
 
       <Filter filter={filter} handleFilterChange={handleFilterChange} />
 
